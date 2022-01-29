@@ -4,66 +4,69 @@ using UnityEngine;
 
 public class Shapeshifting : MonoBehaviour
 {
-    public bool alreadyPressed;
+    public bool pressed;
     public bool released;
     public PlayerStats playerStats;
     public GameObject player;
+
     void Update()
     {
 
         if (Input.GetKey("space") && playerStats.boostAmount > 0)
         {
-            
-            if (!alreadyPressed)
-            { //Buraya boost kısmı eklenecek.
-                Debug.Log("deneme");
-                alreadyPressed = true;
+            if (!pressed)
+            {
+                Debug.Log(("deneme"));
                 if (playerStats.color == PlayerStats.colorState.white)
                 {
                     player.GetComponent<MeshRenderer>().material = playerStats.blackMaterial;
                     playerStats.color = PlayerStats.colorState.black;
                 }
-                else if (playerStats.color == PlayerStats.colorState.black)
+                else if(playerStats.color == PlayerStats.colorState.black)
                 {
                     player.GetComponent<MeshRenderer>().material = playerStats.whiteMaterial;
                     playerStats.color = PlayerStats.colorState.white;
                 }
                 
+                pressed = true;
             }
             
-            playerStats.boostAmount -= playerStats.boostDecreaseAmount * Time.deltaTime;
-            Debug.Log(playerStats.boostAmount);
-
-            if (playerStats.boostAmount <= 0)
+            pressed = true;
+            released = false;
+            
+            playerStats.boostAmount -= Time.deltaTime * 10;
+            
+            if(playerStats.boostAmount <= 0)
             {
-                released = true;
                 Release();
             }
-                
 
-            alreadyPressed = true;
         }
 
-        if (Input.GetKeyUp("space") && alreadyPressed && !released)
+        if (Input.GetKeyUp("space") && pressed)
         {
             Release();
-            released = false;
         }
+
         
     }
-
+    
     void Release()
     {
-        //alreadyPressed = false;
-        if (playerStats.color == PlayerStats.colorState.white)
+        if (!released)
         {
-            player.GetComponent<MeshRenderer>().material = playerStats.blackMaterial;
-            playerStats.color = PlayerStats.colorState.black;
+            if (playerStats.color == PlayerStats.colorState.white)
+            {
+                player.GetComponent<MeshRenderer>().material = playerStats.blackMaterial;
+                playerStats.color = PlayerStats.colorState.black;
+            }
+            else if(playerStats.color == PlayerStats.colorState.black)
+            {
+                player.GetComponent<MeshRenderer>().material = playerStats.whiteMaterial;
+                playerStats.color = PlayerStats.colorState.white;
+            }
         }
-        else if (playerStats.color == PlayerStats.colorState.black)
-        {
-            player.GetComponent<MeshRenderer>().material = playerStats.whiteMaterial;
-            playerStats.color = PlayerStats.colorState.white;
-        }
+        pressed = false;
+        released = true;
     }
 }
