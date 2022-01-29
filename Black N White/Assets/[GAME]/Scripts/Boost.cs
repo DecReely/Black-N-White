@@ -27,7 +27,7 @@ public class Boost : MonoBehaviour
         {
             playerStats.boostAmount = PlayerStats.MaxBoostAmount;
         }
-        
+
         Destroy(gameObject);
     }
 }

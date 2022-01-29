@@ -9,4 +9,13 @@ public class PlayerStats : MonoBehaviour
     public float boostAmount;
     public float boostIncreaseAmount = 10;
 
+    public Material whiteMaterial;
+    public Material blackMaterial;
+
+    public enum colorState
+    {
+        black,
+        white
+    }
+
 }
