@@ -13,8 +13,11 @@ public class Shapeshifting : MonoBehaviour
 
         if (Input.GetKey("space") && playerStats.boostAmount > 0)
         {
+            
             if (!alreadyPressed)
             { //Buraya boost kısmı eklenecek.
+                Debug.Log("deneme");
+                alreadyPressed = true;
                 if (playerStats.color == PlayerStats.colorState.white)
                 {
                     player.GetComponent<MeshRenderer>().material = playerStats.blackMaterial;
@@ -25,6 +28,7 @@ public class Shapeshifting : MonoBehaviour
                     player.GetComponent<MeshRenderer>().material = playerStats.whiteMaterial;
                     playerStats.color = PlayerStats.colorState.white;
                 }
+                
             }
             
             playerStats.boostAmount -= playerStats.boostDecreaseAmount * Time.deltaTime;
@@ -50,7 +54,7 @@ public class Shapeshifting : MonoBehaviour
 
     void Release()
     {
-        alreadyPressed = false;
+        //alreadyPressed = false;
         if (playerStats.color == PlayerStats.colorState.white)
         {
             player.GetComponent<MeshRenderer>().material = playerStats.blackMaterial;

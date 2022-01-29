@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour{
     void FixedUpdate(){
 
         //rb.AddForce(0, 0, forward_speed * Time.deltaTime);
-        PlayerTransform.position = Vector3.MoveTowards(PlayerTransform.position, targetTransform.position, 0.3f);;
+        PlayerTransform.position = Vector3.MoveTowards(PlayerTransform.position, targetTransform.position, 0.15f);;
         
         if (Input.GetKey("a")){
             rb.AddForce(-side_speed * Time.deltaTime, 0, 0);
