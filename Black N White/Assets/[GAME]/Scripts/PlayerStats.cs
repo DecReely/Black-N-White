@@ -18,4 +18,6 @@ public class PlayerStats : MonoBehaviour
         white
     }
 
+    public colorState color;
+
 }
