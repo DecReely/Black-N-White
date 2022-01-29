@@ -1,14 +1,18 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour{
     public Rigidbody rb;
-    public float forward_speed = 1000f;
+    public Transform PlayerTransform;
+    public Transform targetTransform;
+    public float forward_speed = 10f;
     public float side_speed = 1000f;
 
     void FixedUpdate(){
 
-        rb.AddForce(0, 0, forward_speed * Time.deltaTime);
-
+        //rb.AddForce(0, 0, forward_speed * Time.deltaTime);
+        PlayerTransform.position = Vector3.MoveTowards(PlayerTransform.position, targetTransform.position, 0.3f);;
+        
         if (Input.GetKey("a")){
             rb.AddForce(-side_speed * Time.deltaTime, 0, 0);
         }
