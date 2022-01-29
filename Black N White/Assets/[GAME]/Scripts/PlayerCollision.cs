@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour{
+public class PlayerCollision : MonoBehaviour
+{
 
     public PlayerStats ps;
     private void OnCollisionEnter(Collision collision)
     {
-        if(ps.GetComponent("colorState") && collision.collider.tag == "ObstacleBlack")
+        if (ps.color == PlayerStats.colorState.white && gameObject.tag == "ObstacleBlack")
         {
-
+            FindObjectOfType<GameManage>().Restart();
         }
-        if (ps.GetComponent("colorState") && collision.collider.tag == "ObstacleWhite")
+        if (ps.color == PlayerStats.colorState.black && gameObject.tag == "ObstacleWhite")
         {
-
+            FindObjectOfType<GameManage>().Restart();
         }
     }
+}
