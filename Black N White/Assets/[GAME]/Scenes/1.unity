@@ -581,6 +581,20 @@ MonoBehaviour:
   rb: {fileID: 5750354930937031948}
   forward_speed: 1000
   side_speed: 1000
+--- !u!114 &5750354930937031950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750354930937031946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41dcea11a25b749479b3d35ba7da2b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 5750354930937031947}
+  player: {fileID: 5750354930937031946}
 --- !u!4 &5750354930937031951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1597317956107692423, guid: 7fb5879e4fe5b5543902896743de2b4c, type: 3}
