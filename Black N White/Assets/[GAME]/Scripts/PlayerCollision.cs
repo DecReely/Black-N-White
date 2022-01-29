@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour{
 
+    public PlayerStats ps;
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag == "Obstacle")
+        if(ps. && collision.collider.tag == "ObstacleBlack")
         {
 
         }
