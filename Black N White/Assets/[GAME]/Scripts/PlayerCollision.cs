@@ -5,15 +5,12 @@ public class PlayerCollision : MonoBehaviour{
     public PlayerStats ps;
     private void OnCollisionEnter(Collision collision)
     {
-        if(ps. && collision.collider.tag == "ObstacleBlack")
+        if(ps.GetComponent("colorState") && collision.collider.tag == "ObstacleBlack")
+        {
+
+        }
+        if (ps.GetComponent("colorState") && collision.collider.tag == "ObstacleWhite")
         {
 
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
