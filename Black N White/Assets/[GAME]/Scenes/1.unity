@@ -1399,7 +1399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6807ed3cdd94af840aa78a8146b6245f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5750354930937031951}
   offset: {x: 0, y: 1, z: -5}
 --- !u!1 &2051954664
 GameObject:
