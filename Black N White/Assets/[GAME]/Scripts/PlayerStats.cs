@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
 
     public const float MaxBoostAmount = 100;
     public float boostAmount;
-    public float boostIncreaseAmount = 10;
+    public float boostIncreaseAmount = 5;
     public float boostDecreaseAmount = 1;
 
     public Material whiteMaterial;

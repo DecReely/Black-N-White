@@ -8,15 +8,15 @@ public class Shapeshifting : MonoBehaviour
     public bool released;
     public PlayerStats playerStats;
     public GameObject player;
+    public bool inCheckpoint;
 
     void Update()
     {
 
-        if (Input.GetKey("space") && playerStats.boostAmount > 0)
+        if (Input.GetKey("space") && playerStats.boostAmount > 0 && !inCheckpoint)
         {
             if (!pressed)
             {
-                Debug.Log(("deneme"));
                 if (playerStats.color == PlayerStats.colorState.white)
                 {
                     player.GetComponent<MeshRenderer>().material = playerStats.blackMaterial;
@@ -42,8 +42,14 @@ public class Shapeshifting : MonoBehaviour
             }
 
         }
+        
+        else if (Input.GetKey("space") && playerStats.boostAmount > 0 && inCheckpoint)
+        {
+            player.GetComponent<MeshRenderer>().material = playerStats.blackMaterial;
+            playerStats.color = PlayerStats.colorState.black;
+        }
 
-        if (Input.GetKeyUp("space") && pressed)
+        if (Input.GetKeyUp("space") && pressed && !inCheckpoint)
         {
             Release();
         }
@@ -53,7 +59,7 @@ public class Shapeshifting : MonoBehaviour
     
     void Release()
     {
-        if (!released)
+        if (!released && !inCheckpoint)
         {
             if (playerStats.color == PlayerStats.colorState.white)
             {
